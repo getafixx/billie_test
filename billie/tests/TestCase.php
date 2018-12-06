@@ -16,18 +16,4 @@ abstract class TestCase extends BaseTestCase
         ]);
     }
 
-    /**
-     * Seed the database to test with
-     */
-    protected function seedAll()
-    {
-        parent::setUp();
-        
-        $this->setUp();
-
-        \Artisan::call('db:seed', [
-            '--class' => 'PasswordSeeder',
-            '--env'   => 'testing',
-        ]);
-    }
 }
