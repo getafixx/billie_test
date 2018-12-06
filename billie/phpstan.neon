@@ -1,0 +1,18 @@
+parameters:
+    reportUnmatchedIgnoredErrors: false
+    checkAlwaysTrueCheckTypeFunctionCall: false
+    checkAlwaysTrueInstanceof: false
+    polluteCatchScopeWithTryAssignments: false
+    polluteScopeWithLoopInitialAssignments: true
+    earlyTerminatingMethodCalls: []
+    universalObjectCratesClasses: []
+    autoload_files:
+        - %currentWorkingDirectory%/ide/_ide_helper.php
+    ignoreErrors:
+        - '#Call to an undefined method [a-zA-Z0-9\\_]+::method\(\)#'
+        - '#Call to an undefined static method App\\[a-zA-Z]+::(find|create|where|truncate)\(\)\.#'
+        - '#Call to an undefined method App\\[a-zA-Z]+::(find|where|truncate|findOrFail|create|orderBy|select|getBody)\(\)\.#'
+        - '#Call to an undefined method Illuminate\\Database\\DatabaseManager::select\(\)\.#'
+        - '#Call to an undefined static method Illuminate\\Support\\Facades\\Route::(middleware|prefix)\(\)\.#'
+    
+

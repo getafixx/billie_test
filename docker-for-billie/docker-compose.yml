@@ -1,0 +1,64 @@
+version: '3'
+services:
+    billiephpserver:
+        container_name: billiephpserver
+        build: php7.2-fpm
+        ports:
+            - 127.0.0.1:9000:9000
+            - 127.0.0.1:3000:3000
+            - 127.0.0.1:9001:9001
+        networks:
+            - appnet
+        links:
+            - billie-db:mysqldb
+        volumes:
+            - ../:/var/www
+            - ./data/logs/nginx/:/var/log/nginx
+        depends_on:
+            - billie-db
+    billienginx:
+        container_name: billienginx
+        build: nginx
+        ports:
+            - 127.0.0.1:80:80
+        networks:
+            appnet:
+        links:
+            - billiephpserver
+        depends_on:
+            - billie-db
+        volumes:
+            - ../:/var/www
+            - ./data/logs/nginx/:/var/log/nginx
+
+    billie-db:
+        container_name: billie-db
+        build: db
+        ports:
+            - 127.0.0.1:3351:3306
+        networks:
+            - appnet
+        volumes:
+            - ./data/billie-db:/var/lib/mysql
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+            MYSQL_DATABASE: billie-db
+            MYSQL_USER: laravel
+            MYSQL_PASSWORD: secret    
+    billie-db-test:
+        container_name: billie-db-test
+        build: db
+        ports:
+            - 127.0.0.1:3352:3306
+        networks:
+            - appnet
+        volumes:
+            - ./data/billie-db-test:/var/lib/mysql
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+            MYSQL_DATABASE: billie-db-test
+            MYSQL_USER: laravel
+            MYSQL_PASSWORD: secret                
+networks:
+    appnet:
+        driver: "bridge"
