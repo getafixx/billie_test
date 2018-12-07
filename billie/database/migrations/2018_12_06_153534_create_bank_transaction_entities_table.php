@@ -16,7 +16,7 @@ class CreateBankTransactionEntitiesTable extends Migration
         Schema::create('bank_transaction_entities', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->float('amount')->default(0);
+            $table->double('amount')->default(0);
             $table->string('reason', 255);
 
             // probably not needed but I leaving them here.

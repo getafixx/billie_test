@@ -16,7 +16,7 @@ class CreateBankTransactionsTable extends Migration
         Schema::create('bank_transactions', function (Blueprint $table) {
             $table->increments('id');
             $table->uuid('uuid')->unique();
-            $table->float('amount')->default(0);
+            $table->double('amount')->default(0);
             $table->dateTime('booking_date');
 
             // probably not needed but I leaving them here.
