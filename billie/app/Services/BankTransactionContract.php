@@ -2,14 +2,14 @@
 
 namespace App\Services;
 
-interface PasswordCheckContract
+interface BankTransactionContract
 {
     /**
      * Check the password passes the validation rules
      * @param string $password
      * @return boolean
      */
-    public function checkPassword(string $password);
+    public function store();
 
     /**
      * @return array;

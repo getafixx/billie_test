@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use \Illuminate\Database\Eloquent\Relations\HasMany;
+use App\BankTransactionEntity;
 
 class BankTransaction extends Model
 {
@@ -11,7 +13,7 @@ class BankTransaction extends Model
      *
      * @var string
      */
-    protected $tables = 'bank_transaction';
+    protected $tables = 'bank_transactions';
 
     /**
      * The attributes that are mass assignable.
@@ -40,8 +42,8 @@ class BankTransaction extends Model
      * The Bank Transaction Entities relationship.
      * @return HasMany
      */
-    public function bankTransactionEntity(): HasMany
+    public function bankTransactionEntities(): HasMany
     {
-        return $this->hasMany(BankTransactionEntity::class);
+        return $this->hasMany('App\BankTransactionEntity', 'bank_transaction_id', 'uuid');
     }
 }

@@ -38,6 +38,10 @@ class CreateBankTransactionEntitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bank_transaction_entities');
+        Schema::dropIfExists('bank_transaction_entities', function (Blueprint $table) {
+            $table->dropForeign([
+                'bank_transaction_id',
+            ]);
+        });
     }
 }

@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        GatherContent\LaravelFractal\LaravelFractalServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -204,6 +204,7 @@ return [
         'Eloquent'     => Illuminate\Database\Eloquent\Model::class,
         'Event'        => Illuminate\Support\Facades\Event::class,
         'File'         => Illuminate\Support\Facades\File::class,
+        'Fractal'      => GatherContent\LaravelFractal\LaravelFractalFacade::class,
         'Gate'         => Illuminate\Support\Facades\Gate::class,
         'Hash'         => Illuminate\Support\Facades\Hash::class,
         'Lang'         => Illuminate\Support\Facades\Lang::class,

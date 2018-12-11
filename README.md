@@ -42,3 +42,24 @@ You will need to add it to your hosts file
 ```
 127.0.0.1 billie.local
 ```
+
+You will need to migrate the database and seed it
+
+```
+[root@21130bd9b896:/var/www/billie] (feature/01-bank_transactions)# php artisan migrate
+[root@21130bd9b896:/var/www/billie] (feature/01-bank_transactions)# php artisan db:seed
+```
+
+postman collection in the postman folder.
+
+###things that I have not done are
+
+written php unit tests
+api docs
+
+
+
+
+
+
+

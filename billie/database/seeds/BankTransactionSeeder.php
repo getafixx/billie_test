@@ -14,7 +14,7 @@ class BankTransactionSeeder extends Seeder
      */
     public function run()
     {
-        $bankTransactionCount = 5; //random_int(1, 5);
+        $bankTransactionCount = random_int(1, 20);
 
         // create some transactions
         factory(App\BankTransaction::class, $bankTransactionCount)->create([
@@ -34,9 +34,9 @@ class BankTransactionSeeder extends Seeder
     protected function updateTransactionWithEntities(BankTransaction $bankTrans): void
     {
         $transactionTotal = 0;
-        $entityCount = random_int(1, 4);
+        $entityCount = random_int(1, 20);
 
-        //add the BankTransactionEntity to the Order
+        //add the BankTransactionEntity to the BankTransaction
         for ($bankTransactionEntity = 1; $bankTransactionEntity <= $entityCount; $bankTransactionEntity++) {
             $this->addBankTransactionEntityToBankTransaction($transactionTotal, $bankTrans);
         }

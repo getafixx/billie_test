@@ -1,0 +1,53 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Billie",
+		"_postman_id": "eaa260fb-78e2-1592-84aa-8102c152caed",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/getBankTranactions",
+			"request": {
+				"url": "http://billie.local/api/v1/bank-transaction/2c3379f7-39bb-4800-b5f0-c4e6718c826b",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "api/user"
+			},
+			"response": []
+		},
+		{
+			"name": "/postBankTranaction",
+			"request": {
+				"url": "http://billie.local/api/v1/bank-transaction/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"amount\":9.99,\r\n\t\"date\":\"2018-01-24 12:00:01\",\r\n\t\"parts\":\r\n\t[\r\n\t\t{\r\n\t\t\"reason\":\"debtor_payback\",\r\n\t\t\"amount\":2.0\r\n\t\t},\r\n\t\t{\r\n\t\t\"reason\":\"bank_charge\",\r\n\t\t\"amount\":1.0\r\n\t\t},\r\n\t\t{\r\n\t\t\"reason\":\"payment_request\",\r\n\t\t\"amount\":1.5\r\n\t\t},\r\n\t\t{\r\n\t\t\"reason\":\"unidentified\",\r\n\t\t\"amount\":1.5\r\n\t\t},\r\n\t\t{\r\n\t\t\"reason\":\"unidentified\",\r\n\t\t\"amount\":2.0\r\n\t\t},\r\n\t\t{\r\n\t\t\"reason\":\"debtor_payback\",\r\n\t\t\"amount\":1.99\r\n\t\t}\r\n]\r\n}"
+				},
+				"description": "postBankTranaction"
+			},
+			"response": []
+		}
+	]
+}
