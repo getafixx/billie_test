@@ -48,9 +48,6 @@ COPY ./php/php.ini-cli /etc/php/7.2/cli/php.ini
 RUN touch /var/log/php-xdebug.log
 
 RUN touch /root/.bash_history
-COPY ./.ssh /root/.ssh
-
-RUN chmod -R 600  /root/.ssh
 
 WORKDIR /var/www/billie
 
