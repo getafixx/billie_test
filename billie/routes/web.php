@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/formula', 'FormulaController@create')->name('formula.create');
+Route::post('/formula', 'FormulaController@store')->name('formula.store');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
